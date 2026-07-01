@@ -48,6 +48,7 @@
 <body>
 
     <div class="main-container">
+        <!-- صفحة البداية -->
         <div id="home" class="main-section active">
             <h1>بنت محمد❤️</h1>
             <div class="card">
@@ -63,6 +64,7 @@
             </div>
         </div>
 
+        <!-- صفحة وعودي -->
         <div id="promises" class="main-section">
             <h1>وعودي لكي 💍</h1>
             <div class="card">
@@ -79,14 +81,16 @@
             </div>
         </div>
 
+        <!-- صفحة صورنا -->
         <div id="photos" class="main-section">
             <h1>صورنا 📸</h1>
             <div class="card">
-                <img src="couple.png" alt="بنت محمد ومحمد" class="couple-img" onerror="this.src='https://via.placeholder.com/350x450?text=Couple+Photo'">
+                <img src="IMG-20260304-WA0007.jpeg" alt="بنت محمد ومحمد" class="couple-img" onerror="this.src='https://via.placeholder.com/350x450?text=Couple+Photo'">
                 <p style="font-weight: 500; margin-top: 10px;">كان يوم حبك أجمل صدفة❤️</p>
             </div>
         </div>
 
+        <!-- صفحة الرسائل -->
         <div id="message" class="main-section">
             <h1>رسائل صغيرة ✉️</h1>
             <div class="card">
@@ -95,6 +99,7 @@
         </div>
     </div>
 
+    <!-- شريط التنقل السفلي -->
     <nav class="nav-bar">
         <button class="nav-btn active" onclick="switchSection('home', this)">⏳</button>
         <button class="nav-btn" onclick="switchSection('promises', this)">💍</button>
@@ -110,7 +115,6 @@
             btn.classList.add('active');
         }
 
-        // تاريخ بداية العداد (يمكنك تعديله إذا أردت)
         const startDate = new Date(2023, 9, 25); 
 
         function updateCounter() {
