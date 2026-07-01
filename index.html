@@ -11,61 +11,79 @@
             background-image: radial-gradient(#ffccd5 1px, transparent 1px);
             background-size: 30px 30px;
             color: var(--text); display: flex; flex-direction: column; min-height: 100vh; align-items: center; justify-content: space-between;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
         }
         
         .nav-bar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 100%; display: flex; justify-content: space-around; padding: 15px 0; position: fixed; bottom: 0; left: 0; z-index: 100; }
-        .nav-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
+        .nav-btn { background: none; border: none; font-size: 24px; cursor: pointer; padding: 10px; }
         .nav-btn.active { border-bottom: 2px solid var(--primary); }
         
         .main-container { width: 100%; max-width: 500px; padding: 20px; margin-top: 20px; margin-bottom: 80px; }
         .main-section { display: none; }
         .main-section.active { display: block; }
         
-        h1 { color: var(--primary); margin-bottom: 5px; }
+        h1 { color: var(--primary); margin-bottom: 15px; }
         .card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 20px; text-align: center; }
         
         .counter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
-        .counter-item { background: var(--bg); padding: 10px; border-radius: 10px; }
+        .counter-item { background: var(--bg); padding: 10px; border-radius: 10px; font-weight: bold; color: var(--primary); }
         
         .couple-img { width: 100%; max-width: 300px; border-radius: 15px; border: 3px solid var(--primary); }
-        .collapsible { background: var(--primary); color: white; padding: 10px; width: 100%; border: none; border-radius: 10px; cursor: pointer; }
+        .collapsible { background: var(--primary); color: white; padding: 10px; width: 100%; border: none; border-radius: 10px; cursor: pointer; margin-bottom: 10px; }
         .content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+        .promise-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
     <div class="main-container">
+        <!-- صفحة البداية -->
         <div id="home" class="main-section active">
             <h1>محمد & إيمان</h1>
             <h2>بنت محمد❤️</h2>
             <div class="card">
                 <p>كل ثانية وإحنا سوا هي عمر كامل... ⏳</p>
                 <div class="counter-grid">
-                    <div class="counter-item"><span id="days">0</span><br>يوم</div>
+                    <div class="counter-item"><span id="years">0</span><br>سنين</div>
+                    <div class="counter-item"><span id="months">0</span><br>شهور</div>
+                    <div class="counter-item"><span id="days">0</span><br>أيام</div>
                 </div>
             </div>
         </div>
 
+        <!-- صفحة وعودي -->
         <div id="promises" class="main-section">
             <h1>وعودي لكي 💍</h1>
             <div class="card">
-                <p>هفضل أبوكي وأمانك وسندك لآخر العمر ❤️</p>
+                <p class="promise-title">هفضل أبوكي❤️</p>
+                <p>هفضل أبوكي و أمانك لآخر نفس في عمري ❤️</p>
+            </div>
+            <div class="card">
+                <p class="promise-title">هفضل سندك ❤️</p>
+                <p>هفضل سندك وضهرك قصاد الدنيا كلها❤️</p>
+            </div>
+            <div class="card">
+                <p class="promise-title">ملناش غير بعض ❤️</p>
+                <p>مهما حصل بينا ملناش غير بعض ❤️</p>
             </div>
         </div>
 
+        <!-- صفحة صورنا -->
         <div id="photos" class="main-section">
             <h1>صورنا 📸</h1>
             <div class="card">
                 <img src="IMG-20260304-WA0007.jpeg" alt="بنت محمد ومحمد" class="couple-img">
+                <p style="margin-top:15px; font-weight:bold;">كان يوم حبك أجمل صدفة❤️</p>
             </div>
         </div>
 
+        <!-- صفحة الرسائل -->
         <div id="message" class="main-section">
             <h1>رسالة خاصة ✉️</h1>
             <div class="card">
                 <button class="collapsible" onclick="toggleMsg()">اضغطي هنا لفتح الرسالة ❤️</button>
                 <div class="content" id="msgContent">
-                    <p style="padding:15px; text-align: justify;">عارف اني زعلتك كتير حقك عليا يا بنت محمد.. مهما حصل بينا من مشاكل ملناش غير بعض ❤️ بحبك يا ملاكي ❤️</p>
+                    <p style="padding:15px; text-align: justify; line-height: 1.6;">عارف اني زعلتك كتير حقك عليا يا بنت محمد بس مليش غيرك والله مهما حصل بينا من خناق او مشاكل ملناش غير بعض كبرنا مع بعض و بنعدي الدنيا مع بعض ❤️ حقك عليا يا بنت محمد ❤️ بحبك يا ملاكي ❤️</p>
                 </div>
             </div>
         </div>
@@ -92,8 +110,15 @@
         function updateCounter() {
             const start = new Date("2022-10-29");
             const now = new Date();
-            const diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
-            document.getElementById('days').innerText = diff;
+            let diff = now - start;
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let years = Math.floor(days / 365);
+            days %= 365;
+            let months = Math.floor(days / 30);
+            days %= 30;
+            document.getElementById('years').innerText = years;
+            document.getElementById('months').innerText = months;
+            document.getElementById('days').innerText = days;
         }
         updateCounter();
     </script>
