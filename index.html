@@ -5,39 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محمد & إيمان</title>
     <style>
-        :root { --primary: #ff4d6d; --secondary: #ffb3c1; --bg: #fff5f5; --text: #4a0e17; }
+        :root { --primary: #9d0208; --bg: #f8d7da; --text: #590d22; }
         body { 
-            background-color: var(--bg); 
-            background-image: radial-gradient(#ffccd5 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--text); display: flex; flex-direction: column; min-height: 100vh; align-items: center; justify-content: space-between;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #590d22, #9d0208, #d90429);
+            color: white; font-family: 'Segoe UI', Tahoma, sans-serif;
+            text-align: center; margin: 0; padding: 0; min-height: 100vh;
         }
-        
-        .nav-bar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 100%; display: flex; justify-content: space-around; padding: 15px 0; position: fixed; bottom: 0; left: 0; z-index: 100; }
-        .nav-btn { background: none; border: none; font-size: 24px; cursor: pointer; padding: 10px; }
-        .nav-btn.active { border-bottom: 2px solid var(--primary); }
-        
-        .main-container { width: 100%; max-width: 500px; padding: 20px; margin-top: 20px; margin-bottom: 80px; }
-        .main-section { display: none; }
-        .main-section.active { display: block; }
-        
-        h1 { color: var(--primary); margin-bottom: 15px; }
-        .card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 20px; text-align: center; }
-        
+        .main-container { padding: 20px; padding-bottom: 100px; }
+        .card { background: rgba(255, 255, 255, 0.9); color: var(--text); padding: 20px; border-radius: 20px; margin: 15px auto; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .counter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
-        .counter-item { background: var(--bg); padding: 10px; border-radius: 10px; font-weight: bold; color: var(--primary); }
-        
-        .couple-img { width: 100%; max-width: 300px; border-radius: 15px; border: 3px solid var(--primary); }
-        .collapsible { background: var(--primary); color: white; padding: 10px; width: 100%; border: none; border-radius: 10px; cursor: pointer; margin-bottom: 10px; }
-        .content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
-        .promise-title { font-weight: bold; color: var(--primary); margin-bottom: 5px; }
+        .counter-item { background: var(--bg); padding: 8px; border-radius: 10px; font-weight: bold; color: var(--primary); font-size: 0.9em; }
+        .couple-img { width: 100%; max-width: 300px; border-radius: 15px; border: 4px solid white; margin-top: 10px; }
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: white; padding: 15px; display: flex; justify-content: space-around; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); }
+        .main-section { display: none; } .main-section.active { display: block; }
     </style>
 </head>
 <body>
 
     <div class="main-container">
-        <!-- صفحة البداية -->
         <div id="home" class="main-section active">
             <h1>محمد & إيمان</h1>
             <h2>بنت محمد❤️</h2>
@@ -48,78 +33,73 @@
                     <div class="counter-item"><span id="months">0</span><br>شهور</div>
                     <div class="counter-item"><span id="days">0</span><br>أيام</div>
                 </div>
+                <div class="counter-grid">
+                    <div class="counter-item"><span id="hours">0</span><br>ساعات</div>
+                    <div class="counter-item"><span id="minutes">0</span><br>دقائق</div>
+                    <div class="counter-item"><span id="seconds">0</span><br>ثواني</div>
+                </div>
             </div>
         </div>
 
-        <!-- صفحة وعودي -->
         <div id="promises" class="main-section">
             <h1>وعودي لكي 💍</h1>
             <div class="card">
-                <p class="promise-title">هفضل أبوكي❤️</p>
-                <p>هفضل أبوكي و أمانك لآخر نفس في عمري ❤️</p>
+                <b>هفضل أبوكي❤️</b><br>هفضل أبوكي و أمانك لآخر نفس في عمري ❤️
             </div>
             <div class="card">
-                <p class="promise-title">هفضل سندك ❤️</p>
-                <p>هفضل سندك وضهرك قصاد الدنيا كلها❤️</p>
+                <b>هفضل سندك ❤️</b><br>هفضل سندك وضهرك قصاد الدنيا كلها❤️
             </div>
             <div class="card">
-                <p class="promise-title">ملناش غير بعض ❤️</p>
-                <p>مهما حصل بينا ملناش غير بعض ❤️</p>
+                <b>ملناش غير بعض ❤️</b><br>مهما حصل بينا ملناش غير بعض ❤️
             </div>
         </div>
 
-        <!-- صفحة صورنا -->
         <div id="photos" class="main-section">
             <h1>صورنا 📸</h1>
             <div class="card">
-                <img src="IMG-20260304-WA0007.jpeg" alt="بنت محمد ومحمد" class="couple-img">
-                <p style="margin-top:15px; font-weight:bold;">كان يوم حبك أجمل صدفة❤️</p>
+                <img src="IMG-20260304-WA0007.jpeg" alt="صورة" class="couple-img">
+                <p style="margin-top:10px; color:var(--text);">كان يوم حبك أجمل صدفة❤️</p>
             </div>
         </div>
 
-        <!-- صفحة الرسائل -->
         <div id="message" class="main-section">
             <h1>رسالة خاصة ✉️</h1>
-            <div class="card">
-                <button class="collapsible" onclick="toggleMsg()">اضغطي هنا لفتح الرسالة ❤️</button>
-                <div class="content" id="msgContent">
-                    <p style="padding:15px; text-align: justify; line-height: 1.6;">عارف اني زعلتك كتير حقك عليا يا بنت محمد بس مليش غيرك والله مهما حصل بينا من خناق او مشاكل ملناش غير بعض كبرنا مع بعض و بنعدي الدنيا مع بعض ❤️ حقك عليا يا بنت محمد ❤️ بحبك يا ملاكي ❤️</p>
-                </div>
+            <div class="card" style="text-align: justify;">
+                عارف اني زعلتك كتير حقك عليا يا بنت محمد بس مليش غيرك والله مهما حصل بينا من خناق او مشاكل ملناش غير بعض كبرنا مع بعض و بنعدي الدنيا مع بعض ❤️ حقك عليا يا بنت محمد ❤️ بحبك يا ملاكي ❤️
             </div>
         </div>
     </div>
 
     <nav class="nav-bar">
-        <button class="nav-btn active" onclick="switchSection('home', this)">⏳</button>
-        <button class="nav-btn" onclick="switchSection('promises', this)">💍</button>
-        <button class="nav-btn" onclick="switchSection('photos', this)">📸</button>
-        <button class="nav-btn" onclick="switchSection('message', this)">✉️</button>
+        <button onclick="switchSection('home', this)">⏳</button>
+        <button onclick="switchSection('promises', this)">💍</button>
+        <button onclick="switchSection('photos', this)">📸</button>
+        <button onclick="switchSection('message', this)">✉️</button>
     </nav>
 
     <script>
-        function switchSection(sectionId, btn) {
+        function switchSection(id) {
             document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            btn.classList.add('active');
-        }
-        function toggleMsg() {
-            var content = document.getElementById("msgContent");
-            content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+            document.getElementById(id).classList.add('active');
         }
         function updateCounter() {
-            const start = new Date("2022-10-29");
+            const start = new Date("2022-10-29T21:00:00");
             const now = new Date();
             let diff = now - start;
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let seconds = Math.floor(diff / 1000);
+            let minutes = Math.floor(seconds / 60);
+            let hours = Math.floor(minutes / 60);
+            let days = Math.floor(hours / 24);
             let years = Math.floor(days / 365);
-            days %= 365;
-            let months = Math.floor(days / 30);
-            days %= 30;
+            
             document.getElementById('years').innerText = years;
-            document.getElementById('months').innerText = months;
-            document.getElementById('days').innerText = days;
+            document.getElementById('months').innerText = Math.floor((days % 365) / 30);
+            document.getElementById('days').innerText = days % 30;
+            document.getElementById('hours').innerText = hours % 24;
+            document.getElementById('minutes').innerText = minutes % 60;
+            document.getElementById('seconds').innerText = seconds % 60;
         }
+        setInterval(updateCounter, 1000);
         updateCounter();
     </script>
 </body>
