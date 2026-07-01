@@ -5,56 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محمد & إيمان</title>
     <style>
-        :root { --primary: #ff4d6d; --bg: #fff0f3; }
+        :root { --primary: #ff4d6d; --secondary: #ffb3c1; --bg: #fff5f5; --text: #4a0e17; }
         body { 
             background-color: var(--bg); 
-            background-image: radial-gradient(circle, #ffccd5 1px, transparent 1px);
+            background-image: radial-gradient(#ffccd5 1px, transparent 1px);
             background-size: 30px 30px;
-            font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; color: #4a0e17;
+            color: var(--text); display: flex; flex-direction: column; min-height: 100vh; align-items: center; justify-content: space-between;
         }
-        h1 { color: var(--primary); margin-top: 20px; }
-        .card { background: white; padding: 20px; margin: 20px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .collapsible { background: var(--primary); color: white; padding: 15px; width: 100%; border: none; border-radius: 10px; cursor: pointer; font-size: 16px; }
-        .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fffafb; }
-        .couple-img { width: 100%; max-width: 300px; border-radius: 20px; border: 3px solid var(--primary); }
+        
+        .nav-bar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 100%; display: flex; justify-content: space-around; padding: 15px 0; position: fixed; bottom: 0; left: 0; z-index: 100; }
+        .nav-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
+        .nav-btn.active { border-bottom: 2px solid var(--primary); }
+        
+        .main-container { width: 100%; max-width: 500px; padding: 20px; margin-top: 20px; margin-bottom: 80px; }
+        .main-section { display: none; }
+        .main-section.active { display: block; }
+        
+        h1 { color: var(--primary); margin-bottom: 5px; }
+        .card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 20px; text-align: center; }
+        
+        .counter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        .counter-item { background: var(--bg); padding: 10px; border-radius: 10px; }
+        
+        .couple-img { width: 100%; max-width: 300px; border-radius: 15px; border: 3px solid var(--primary); }
+        .collapsible { background: var(--primary); color: white; padding: 10px; width: 100%; border: none; border-radius: 10px; cursor: pointer; }
+        .content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
     </style>
 </head>
 <body>
 
-    <h1>محمد & إيمان</h1>
-    <h2>بنت محمد❤️</h2>
+    <div class="main-container">
+        <div id="home" class="main-section active">
+            <h1>محمد & إيمان</h1>
+            <h2>بنت محمد❤️</h2>
+            <div class="card">
+                <p>كل ثانية وإحنا سوا هي عمر كامل... ⏳</p>
+                <div class="counter-grid">
+                    <div class="counter-item"><span id="days">0</span><br>يوم</div>
+                </div>
+            </div>
+        </div>
 
-    <div class="card">
-        <h3>بداية حكايتنا ⏳</h3>
-        <p id="timer"></p>
-    </div>
+        <div id="promises" class="main-section">
+            <h1>وعودي لكي 💍</h1>
+            <div class="card">
+                <p>هفضل أبوكي وأمانك وسندك لآخر العمر ❤️</p>
+            </div>
+        </div>
 
-    <div class="card">
-        <button class="collapsible" onclick="toggleMsg()">اضغطي هنا لفتح رسالتي ليكي ✉️</button>
-        <div class="content" id="msgContent">
-            <p style="padding: 15px;">عارف اني زعلتك كتير حقك عليا يا بنت محمد بس مليش غيرك والله مهما حصل بينا من خناق او مشاكل ملناش غير بعض كبرنا مع بعض و بنعدي الدنيا مع بعض ❤️ حقك عليا يا بنت محمد ❤️ بحبك يا ملاكي ❤️</p>
+        <div id="photos" class="main-section">
+            <h1>صورنا 📸</h1>
+            <div class="card">
+                <img src="IMG-20260304-WA0007.jpeg" alt="بنت محمد ومحمد" class="couple-img">
+            </div>
+        </div>
+
+        <div id="message" class="main-section">
+            <h1>رسالة خاصة ✉️</h1>
+            <div class="card">
+                <button class="collapsible" onclick="toggleMsg()">اضغطي هنا لفتح الرسالة ❤️</button>
+                <div class="content" id="msgContent">
+                    <p style="padding:15px; text-align: justify;">عارف اني زعلتك كتير حقك عليا يا بنت محمد.. مهما حصل بينا من مشاكل ملناش غير بعض ❤️ بحبك يا ملاكي ❤️</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="card">
-        <img src="IMG-20260304-WA0007.jpeg" alt="صورة لينا" class="couple-img">
-    </div>
+    <nav class="nav-bar">
+        <button class="nav-btn active" onclick="switchSection('home', this)">⏳</button>
+        <button class="nav-btn" onclick="switchSection('promises', this)">💍</button>
+        <button class="nav-btn" onclick="switchSection('photos', this)">📸</button>
+        <button class="nav-btn" onclick="switchSection('message', this)">✉️</button>
+    </nav>
 
     <script>
+        function switchSection(sectionId, btn) {
+            document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            btn.classList.add('active');
+        }
         function toggleMsg() {
             var content = document.getElementById("msgContent");
             content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
         }
-
-        function updateTimer() {
-            const start = new Date("2022-10-29T00:00:00");
+        function updateCounter() {
+            const start = new Date("2022-10-29");
             const now = new Date();
-            const diff = now - start;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("timer").innerText = days + " يوم من الحب والذكريات❤️";
+            const diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+            document.getElementById('days').innerText = diff;
         }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+        updateCounter();
     </script>
 </body>
 </html>
