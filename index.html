@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد & إيمان</title>
+    <style>
+        body {
+            background-color: #0b0104;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+        h1 { color: #ff4d6d; margin-top: 30px; }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 77, 109, 0.2);
+        }
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .timer-box {
+            background: #1a0208;
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 50px;
+            border: 1px solid #ff4d6d;
+        }
+        .timer-box span {
+            font-size: 22px;
+            color: #ff4d6d;
+            display: block;
+            font-weight: bold;
+        }
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #1a0208;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid #ff4d6d;
+        }
+        .nav-btn {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav-btn:hover { color: #ff4d6d; }
+        .hidden-section { display: none; }
+        .active-section { display: block; }
+        .btn-msg {
+            background: #ff4d6d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .gallery-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="home" class="main-section active-section">
+        <h1>محمد & إيمان</h1>
+        <p>عالمنا الصغير ❤️</p>
+        
+        <div class="card">
+            <h3>منذ أن بدأت القصة</h3>
+            <div class="timer-grid">
+                <div class="timer-box"><span id="years">0</span>سنة</div>
+                <div class="timer-box"><span id="months">0</span>شهر</div>
+                <div class="timer-box"><span id="days">0</span>يوم</div>
+                <div class="timer-box"><span id="hours">0</span>ساعة</div>
+                <div class="timer-box"><span id="minutes">0</span>دقيقة</div>
+                <div class="timer-box"><span id="seconds">0</span>ثانية</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="promisis" class="main-section hidden-section">
+        <h1>وعودي ليكي 💍</h1>
+        <div class="card"><h3>هنفضل سندك</h3><p>في الفرح والزعل وفي كل لحظة تحتاجي فيها حد جنبك.</p></div>
+        <div class="card"><h3>هكون أمانك</h3><p>ضحكتك عندي أغلى من الدنيا.</p></div>
+    </div>
+
+    <div id="photos" class="main-section hidden-section">
+        <h1>صورنا 📸</h1>
+        <div class="card">
+            <img src="https://via.placeholder.com/350x250" class="gallery-img">
+            <p>أحلى صدفة في عمري ❤️</p>
+        </div>
+    </div>
+
+    <div id="message" class="main-section hidden-section">
+        <h1>رسائل صغيرة ✉️</h1>
+        <div class="card">
+            <button class="btn-msg" onclick="alert('إنتي أجمل نعمة في حياتي ❤️')">افتحيني ✉️</button>
+        </div>
+    </div>
+</div>
+
+<div class="nav-bar">
+    <a href="#" class="nav-btn" onclick="showSection('home')">🏠 البداية</a>
+    <a href="#" class="nav-btn" onclick="showSection('promisis')">💍 وعودي</a>
+    <a href="#" class="nav-btn" onclick="showSection('photos')">📸 صورنا</a>
+    <a href="#" class="nav-btn" onclick="showSection('message')">✉️ الرسائل</a>
+</div>
+
+<script>
+    // عداد الحب التفاعلي لتاريخ 29-10-2022
+    function updateCounter() {
+        var startDate = new Date(2022, 9, 29, 0, 0, 0); 
+        var now = new Date();
+        var diff = now - startDate;
+        
+        var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+        diff -= years * (1000 * 60 * 60 * 24 * 365.25);
+        
+        var months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+        diff -= months * (1000 * 60 * 60 * 24 * 30.44);
+        
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= days * (1000 * 60 * 60 * 24);
+        
+        var hours = Math.floor(diff / (1000 * 60 * 60));
+        diff -= hours * (1000 * 60 * 60);
+        
+        var minutes = Math.floor(diff / (1000 * 60));
+        diff -= minutes * (1000 * 60);
+        
+        var seconds = Math.floor(diff / 1000);
+        
+        document.getElementById("years").innerText = years;
+        document.getElementById("months").innerText = months;
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+    }
+    setInterval(updateCounter, 1000);
+    updateCounter();
+
+    // التنقل بين الصفحات السفلية
+    function showSection(sectionId) {
+        var sections = document.getElementsByClassName('main-section');
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].classList.remove('active-section');
+            sections[i].classList.add('hidden-section');
+        }
+        document.getElementById(sectionId).classList.remove('hidden-section');
+        document.getElementById(sectionId).classList.add('active-section');
+    }
+</script>
+</body>
+</html>
