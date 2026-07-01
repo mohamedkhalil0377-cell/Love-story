@@ -3,154 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بنت محمد❤️</title>
+    <title>محمد & إيمان</title>
     <style>
-        :root {
-            --primary: #ff4d6d;
-            --secondary: #ffb3c1;
-            --bg: #fff5f5;
-            --text: #4a0e17;
+        :root { --primary: #ff4d6d; --bg: #fff0f3; }
+        body { 
+            background-color: var(--bg); 
+            background-image: radial-gradient(circle, #ffccd5 1px, transparent 1px);
+            background-size: 30px 30px;
+            font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; color: #4a0e17;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; min-height: 100vh; align-items: center; justify-content: space-between; }
-        
-        .nav-bar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); width: 100%; display: flex; justify-content: space-around; padding: 15px 0; position: fixed; bottom: 0; left: 0; z-index: 100; }
-        .nav-btn { background: none; border: none; font-size: 24px; cursor: pointer; transition: transform 0.2s; position: relative; }
-        .nav-btn:hover { transform: scale(1.2); }
-        .nav-btn.active::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
-        
-        .main-container { width: 100%; max-width: 500px; padding: 20px; margin-top: 20px; margin-bottom: 80px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        .main-section { display: none; width: 100%; animation: fadeIn 0.5s ease-in-out forwards; }
-        .main-section.active { display: block; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        h1 { text-align: center; color: var(--primary); margin-bottom: 25px; font-size: 28px; }
-        .card { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 20px; text-align: center; border: 1px solid rgba(255, 77, 109, 0.1); }
-        
-        /* Home Page Countdown */
-        .counter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
-        .counter-item { background: white; padding: 15px 10px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border-bottom: 4px solid var(--primary); }
-        .counter-num { font-size: 24px; font-weight: bold; color: var(--primary); display: block; }
-        .counter-label { font-size: 12px; color: #888; }
-        
-        /* Promises Page */
-        .promise-title { font-size: 18px; color: var(--primary); font-weight: bold; margin-bottom: 8px; }
-        .promise-desc { font-size: 14px; color: #666; line-height: 1.6; }
-        
-        /* Photos Page */
-        .couple-img { width: 100%; max-width: 350px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
-        
-        /* Message Page */
-        .msg-text { font-size: 16px; line-height: 1.8; color: var(--text); text-align: justify; }
+        h1 { color: var(--primary); margin-top: 20px; }
+        .card { background: white; padding: 20px; margin: 20px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .collapsible { background: var(--primary); color: white; padding: 15px; width: 100%; border: none; border-radius: 10px; cursor: pointer; font-size: 16px; }
+        .content { padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fffafb; }
+        .couple-img { width: 100%; max-width: 300px; border-radius: 20px; border: 3px solid var(--primary); }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <!-- صفحة البداية -->
-        <div id="home" class="main-section active">
-            <h1>بنت محمد❤️</h1>
-            <div class="card">
-                <p style="font-size: 18px; font-weight: 500;">كل ثانية وإحنا سوا هي عمر كامل... ⏳</p>
-                <div class="counter-grid">
-                    <div class="counter-item"><span class="counter-num" id="years">0</span><span class="counter-label">سنين</span></div>
-                    <div class="counter-item"><span class="counter-num" id="months">0</span><span class="counter-label">شهور</span></div>
-                    <div class="counter-item"><span class="counter-num" id="days">0</span><span class="counter-label">أيام</span></div>
-                    <div class="counter-item"><span class="counter-num" id="hours">0</span><span class="counter-label">ساعات</span></div>
-                    <div class="counter-item"><span class="counter-num" id="minutes">0</span><span class="counter-label">دقائق</span></div>
-                    <div class="counter-item"><span class="counter-num" id="seconds">0</span><span class="counter-label">ثواني</span></div>
-                </div>
-            </div>
-        </div>
+    <h1>محمد & إيمان</h1>
+    <h2>بنت محمد❤️</h2>
 
-        <!-- صفحة وعودي -->
-        <div id="promises" class="main-section">
-            <h1>وعودي لكي 💍</h1>
-            <div class="card">
-                <p class="promise-title">هفضل أبوكي❤️</p>
-                <p class="promise-desc">هفضل أبوكي و أمانك لآخر نفس في عمري ❤️</p>
-            </div>
-            <div class="card">
-                <p class="promise-title">هفضل سندك ❤️</p>
-                <p class="promise-desc">هفضل سندك وضهرك قصاد الدنيا كلها❤️</p>
-            </div>
-            <div class="card">
-                <p class="promise-title">ملناش غير بعض ❤️</p>
-                <p class="promise-desc">مهما حصل بينا ملناش غير بعض ❤️</p>
-            </div>
-        </div>
+    <div class="card">
+        <h3>بداية حكايتنا ⏳</h3>
+        <p id="timer"></p>
+    </div>
 
-        <!-- صفحة صورنا -->
-        <div id="photos" class="main-section">
-            <h1>صورنا 📸</h1>
-            <div class="card">
-                <img src="IMG-20260304-WA0007.jpeg" alt="بنت محمد ومحمد" class="couple-img" onerror="this.src='https://via.placeholder.com/350x450?text=Couple+Photo'">
-                <p style="font-weight: 500; margin-top: 10px;">كان يوم حبك أجمل صدفة❤️</p>
-            </div>
-        </div>
-
-        <!-- صفحة الرسائل -->
-        <div id="message" class="main-section">
-            <h1>رسائل صغيرة ✉️</h1>
-            <div class="card">
-                <p class="msg-text">عارف اني زعلتك كتير حقك عليا يا بنت محمد بس مليش غيرك والله مهما حصل بينا من خناق او مشاكل ملناش غير بعض كبرنا مع بعض و بنعدي الدنيا مع بعض ❤️ حقك عليا يا بنت محمد ❤️ بحبك يا ملاكي ❤️</p>
-            </div>
+    <div class="card">
+        <button class="collapsible" onclick="toggleMsg()">اضغطي هنا لفتح رسالتي ليكي ✉️</button>
+        <div class="content" id="msgContent">
+            <p style="padding: 15px;">عارف اني زعلتك كتير حقك عليا يا بنت محمد بس مليش غيرك والله مهما حصل بينا من خناق او مشاكل ملناش غير بعض كبرنا مع بعض و بنعدي الدنيا مع بعض ❤️ حقك عليا يا بنت محمد ❤️ بحبك يا ملاكي ❤️</p>
         </div>
     </div>
 
-    <!-- شريط التنقل السفلي -->
-    <nav class="nav-bar">
-        <button class="nav-btn active" onclick="switchSection('home', this)">⏳</button>
-        <button class="nav-btn" onclick="switchSection('promises', this)">💍</button>
-        <button class="nav-btn" onclick="switchSection('photos', this)">📸</button>
-        <button class="nav-btn" onclick="switchSection('message', this)">✉️</button>
-    </nav>
+    <div class="card">
+        <img src="IMG-20260304-WA0007.jpeg" alt="صورة لينا" class="couple-img">
+    </div>
 
     <script>
-        function switchSection(sectionId, btn) {
-            document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            btn.classList.add('active');
+        function toggleMsg() {
+            var content = document.getElementById("msgContent");
+            content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
         }
 
-        const startDate = new Date(2023, 9, 25); 
-
-        function updateCounter() {
+        function updateTimer() {
+            const start = new Date("2022-10-29T00:00:00");
             const now = new Date();
-            let years = now.getFullYear() - startDate.getFullYear();
-            let months = now.getMonth() - startDate.getMonth();
-            let days = now.getDate() - startDate.getDate();
-
-            if (days < 0) {
-                months--;
-                const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-                days += prevMonth.getDate();
-            }
-            if (months < 0) {
-                years--;
-                months += 12;
-            }
-
-            const diffHrs = now.getHours() - startDate.getHours();
-            const diffMins = now.getMinutes() - startDate.getMinutes();
-            const diffSecs = now.getSeconds() - startDate.getSeconds();
-
-            let hours = diffHrs < 0 ? diffHrs + 24 : diffHrs;
-            let minutes = diffMins < 0 ? diffMins + 60 : diffMins;
-            let seconds = diffSecs < 0 ? diffSecs + 60 : diffSecs;
-
-            document.getElementById('years').innerText = years;
-            document.getElementById('months').innerText = months;
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
-            document.getElementById('seconds').innerText = seconds;
+            const diff = now - start;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("timer").innerText = days + " يوم من الحب والذكريات❤️";
         }
-
-        setInterval(updateCounter, 1000);
-        updateCounter();
+        setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
 </body>
 </html>
